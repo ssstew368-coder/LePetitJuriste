@@ -1,18 +1,24 @@
 backend:
   name: github
-  repo: ssstew368-coder/LePetitJuriste          # remplace par le tien ex: steven123/le-petit-juriste
-  branch: main                              # ou master si c'est ton branche principale
+  repo: ssstew368-coder/LePetitJuriste
+  branch: main
+  auth_type: implicit   # ou pkce si tu veux plus sécurisé
+  base_url: https://github.com
+  auth_endpoint: login/oauth/authorize
+  token_endpoint: login/oauth/access_token
+  api_root: https://api.github.com
+  squash_merges: true
 
-media_folder: "images"                      # dossier où upload les couvertures/extraits
-public_folder: "/images"                    # chemin public pour les images
+media_folder: "images"
+public_folder: "/images"
 
 collections:
-  - name: "livres"                          # nom interne
-    label: "Livres"                         # nom affiché
-    folder: "data/livres"                   # crée ce dossier après
-    create: true                            # permet d'ajouter de nouveaux
-    slug: "{{titre}}"                       # nom du fichier = titre
-    extension: "json"                       # on sauve en JSON pour simplicité
+  - name: "livres"
+    label: "Livres"
+    folder: "data/livres"
+    create: true
+    slug: "{{titre}}"
+    extension: "json"
     format: "json"
     fields:
       - {label: "Catégorie", name: "categorie", widget: "string", required: true}
