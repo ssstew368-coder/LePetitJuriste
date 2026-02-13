@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: TON_USERNAME/ton-repo-name          # remplace par le tien ex: steven123/le-petit-juriste
+  branch: main                              # ou master si c'est ton branche principale
+
+media_folder: "images"                      # dossier où upload les couvertures/extraits
+public_folder: "/images"                    # chemin public pour les images
+
+collections:
+  - name: "livres"                          # nom interne
+    label: "Livres"                         # nom affiché
+    folder: "data/livres"                   # crée ce dossier après
+    create: true                            # permet d'ajouter de nouveaux
+    slug: "{{titre}}"                       # nom du fichier = titre
+    extension: "json"                       # on sauve en JSON pour simplicité
+    format: "json"
+    fields:
+      - {label: "Catégorie", name: "categorie", widget: "string", required: true}
+      - {label: "Titre", name: "titre", widget: "string", required: true}
+      - {label: "Auteur", name: "auteur", widget: "string", default: "Steven"}
+      - {label: "Prix", name: "prix", widget: "string", required: true}
+      - {label: "Description courte", name: "desc_courte", widget: "text"}
+      - {label: "Description longue", name: "desc_longue", widget: "markdown"}
+      - {label: "Image couverture", name: "image", widget: "image", required: true}
+      - {label: "Extraits (images)", name: "extraits", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
