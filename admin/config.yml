@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TON_USERNAME/ton-repo-name          # remplace par le tien ex: steven123/le-petit-juriste
+  repo: ssstew368-coder/LePetitJuriste          # remplace par le tien ex: steven123/le-petit-juriste
   branch: main                              # ou master si c'est ton branche principale
 
 media_folder: "images"                      # dossier où upload les couvertures/extraits
